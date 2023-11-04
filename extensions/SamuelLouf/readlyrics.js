@@ -7,7 +7,9 @@
   "use strict";
 
   function readLyrics(lrc){
-  	var result = {};
+  	var result = {
+      lyrics: {}
+    };
     var lines = lrc.split('\n');
     
     var i = 0;
@@ -20,7 +22,7 @@
         	var selected_line_split = selected_line.split(':');
           result[selected_line_split[0].replace('[', '').replace(']', '')] = selected_line.split(selected_line_split[0].replace('[', '').replace(']', '') + ':')[1].replace('[', '').replace(']', '');
         } else {
-          result[selected_line_split_brackets[0].replace('[', '')] = selected_line_split_brackets[1];
+          result.lyrics[selected_line_split_brackets[0].replace('[', '')] = selected_line_split_brackets[1];
         }
       }
     }
